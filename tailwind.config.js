@@ -1,5 +1,3 @@
-import animatePlugin from "tailwindcss-animate"
-
 /** @type {import('tailwindcss').Config} */
 export default {
     darkMode: ["class"],
@@ -49,8 +47,5 @@ export default {
                 sm: "calc(var(--radius) - 4px)",
             },
         },
-    },
-    plugins: [
-        animatePlugin
-    ],
+    }
 }

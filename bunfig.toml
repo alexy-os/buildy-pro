@@ -1,11 +1,2 @@
-[test]
-preload = "./setup.ts"
-
-[build]
-silent = true
-
 [install]
 exact = true
-
-[install.scopes]
-shadcn = "https://registry.npmjs.org/"

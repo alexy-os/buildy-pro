@@ -1,7 +1,11 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-export function Footer({ className, ...props }: React.HTMLAttributes<HTMLElement>) {
+type FooterProps = React.HTMLAttributes<HTMLElement>;
+
+const COPYRIGHT = "Built with ❤️ by UI Blocks Team";
+
+export function Footer({ className, ...props }: FooterProps) {
   return (
     <footer
       className={cn(
@@ -10,10 +14,10 @@ export function Footer({ className, ...props }: React.HTMLAttributes<HTMLElement
       )}
       {...props}
     >
-      <div className="container mx-auto flex h-16 items-center px-4">
+      <div className="container mx-auto px-4 flex h-16 items-center">
         <div className="flex flex-1 items-center justify-center sm:justify-end">
           <p className="text-sm text-muted-foreground">
-            Built with ❤️ by UI Blocks Team
+            {COPYRIGHT}
           </p>
         </div>
       </div>

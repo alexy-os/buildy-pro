@@ -1,10 +1,8 @@
-import * as React from "react";
 import { type RouteObject } from "react-router-dom";
 import { RootLayout } from "@/layouts/RootLayout";
 import { HomePage } from "@/pages/home";
 import { DocsPage } from "@/pages/docs";
 import { ComponentsPage } from "@/pages/components";
-import { LoginPage } from "@/pages/login";
 
 export const routes: RouteObject[] = [
   {
@@ -22,10 +20,6 @@ export const routes: RouteObject[] = [
       {
         path: "components",
         element: <ComponentsPage />,
-      },
-      {
-        path: "login",
-        element: <LoginPage />,
       },
     ],
   },

@@ -1,36 +1,35 @@
 {
     "name": "react-shadcn-uiblocks",
-    "version": "0.0.1",
+    "version": "1.0.1",
     "description": "React Shadcn UI Blocks Starter",
     "author": "AlexY-OS",
     "license": "MIT",
     "type": "module",
     "scripts": {
-        "dev": "bun run dev.ts",
-        "build": "NODE_ENV=production bun build ./src/main.tsx --outdir=public/assets --entry-naming=[name].js --minify --target=browser && bun run build:css && bun run copy-html",
-        "build:css": "tailwindcss -i ./src/index.css -o ./public/assets/styles.css --minify",
-        "preview": "PREVIEW=true bun run dev.ts",
-        "vercel-build": "bun run build",
-        "copy-html": "cp index.html public/"
+        "dev": "bunx --bun vite",
+        "build": "bunx --bun vite build",
+        "preview": "bunx --bun vite preview"
     },
     "dependencies": {
         "@radix-ui/react-dialog": "^1.1.2",
         "@radix-ui/react-label": "2.1.0",
         "@radix-ui/react-navigation-menu": "^1.2.1",
         "@radix-ui/react-slot": "^1.1.0",
+        "@types/node": "22.10.1",
         "@types/react-dom": "19.0.1",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "lucide-react": "^0.468.0",
         "react-router-dom": "7.0.2",
-        "tailwind-merge": "^2.5.5",
-        "tailwindcss-animate": "^1.0.7"
+        "tailwind-merge": "^2.5.5"
     },
     "devDependencies": {
         "@types/react": "^19.0.1",
+        "@vitejs/plugin-react-swc": "^3.6.0",
         "autoprefixer": "10.4.20",
-        "bun-types": "1.1.38",
         "postcss": "8.4.49",
-        "tailwindcss": "3.4.16"
+        "tailwindcss": "3.4.16",
+        "typescript": "^5.4.0",
+        "vite": "^5.1.0"
     }
 }

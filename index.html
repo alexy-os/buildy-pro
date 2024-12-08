@@ -5,24 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your App</title>
   <script>
-    // Ensure this runs before any styles are loaded
-    try {
-      const savedTheme = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      
-      if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
+    // Immediate theme detection to prevent flash
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem("theme");
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        
+        if (savedTheme === "dark" || (!savedTheme && systemDark)) {
+          document.documentElement.classList.add("dark");
+        }
+        
+        // Store the initial theme to avoid re-calculations
+        window.__INITIAL_THEME__ = savedTheme || (systemDark ? "dark" : "light");
+      } catch (e) {
+        console.error("Theme initialization failed:", e);
       }
-    } catch (e) {
-      console.error("Failed to set initial theme:", e);
-    }
+    })();
   </script>
-  <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzN2JjZjciIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoYXJ0LW5vLWF4ZXMtZ2FudHQiPjxwYXRoIGQ9Ik04IDZoMTAiLz48cGF0aCBkPSJNNiAxMmg5Ii8+PHBhdGggZD0iTTExIDE4aDciLz48L3N2Zz4=" />
 </head>
 <body>
   <div id="root"></div>
-  <script type="module" src="/assets/main.js"></script>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html> 

@@ -10,7 +10,7 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
     <section
       ref={ref}
       className={cn(
-        "bg-background text-foreground px-4",
+        "bg-background text-foreground",
         fullHeight && "min-h-[calc(100vh-4rem-4rem)]",
         "py-12 sm:py-24 md:py-32",
         className
