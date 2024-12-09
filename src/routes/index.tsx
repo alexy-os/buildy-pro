@@ -3,6 +3,7 @@ import { RootLayout } from "@/layouts/RootLayout";
 import { HomePage } from "@/pages/home";
 import { DocsPage } from "@/pages/docs";
 import { ComponentsPage } from "@/pages/components";
+import { HeroComponentsPage } from "@/pages/components/hero";
 
 export const routes: RouteObject[] = [
   {
@@ -19,7 +20,16 @@ export const routes: RouteObject[] = [
       },
       {
         path: "components",
-        element: <ComponentsPage />,
+        children: [
+          {
+            index: true,
+            element: <ComponentsPage />,
+          },
+          {
+            path: "hero",
+            element: <HeroComponentsPage />,
+          },
+        ],
       },
     ],
   },

@@ -26,7 +26,7 @@ const PREVIEW_COMPONENTS = [
     title: "Hero Sections",
     description: "Eye-catching hero sections to grab your visitors' attention",
     icon: LayoutTemplate,
-    path: "#"
+    path: "/components/hero"
   },
   {
     title: "Features",
