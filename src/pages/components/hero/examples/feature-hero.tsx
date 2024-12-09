@@ -1,4 +1,6 @@
-export function FeatureHero() {
+import React from 'react';
+
+const FeatureHero: React.FC = () => {
     return (
         <div className="grid min-h-[600px] grid-cols-1 items-center gap-8 lg:grid-cols-2">
             <div className="flex flex-col items-start space-y-4">
@@ -19,5 +21,7 @@ export function FeatureHero() {
             </div>
             <div className="aspect-square rounded-lg bg-muted" />
         </div>
-    );
-} 
+        );
+};
+
+export default FeatureHero;

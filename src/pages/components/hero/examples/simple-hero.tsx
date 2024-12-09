@@ -1,4 +1,6 @@
-export function SimpleHero() {
+import React from 'react';
+
+const SimpleHero: React.FC = () => {
     return (
         <div className="flex min-h-[600px] flex-col items-center justify-center text-center">
             <h1 className="text-4xl font-bold sm:text-6xl">
@@ -17,4 +19,6 @@ export function SimpleHero() {
             </div>
         </div>
     );
-} 
+};
+
+export default SimpleHero; 

@@ -1,5 +1,5 @@
 import { Viewer } from '@/components/viewer';
-import { heroExamples } from './hero-examples';
+import { loadComponents } from './loadComponents';
 
 export function HeroComponentsPage() {
     return (
@@ -13,7 +13,7 @@ export function HeroComponentsPage() {
                 </div>
 
                 <div className="grid gap-8">
-                    {heroExamples.map((example) => (
+                        {loadComponents.map((example) => (
                         <Viewer
                             key={example.id}
                             title={example.title}
