@@ -29,6 +29,10 @@ export const routes: RouteObject[] = [
             path: "hero",
             element: <HeroComponentsPage />,
           },
+          {
+            path: "*",
+            element: <ComponentsPage />
+          }
         ],
       },
     ],

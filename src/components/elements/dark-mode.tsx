@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useSettings } from "@/lib/settings";
 
 declare global {
   interface Window {
@@ -9,41 +10,28 @@ declare global {
 }
 
 export function DarkMode() {
-  const [isDark, setIsDark] = React.useState(() => {
-    if (typeof window === 'undefined') return false;
-    return window.__INITIAL_THEME__ === "dark";
-  });
-  
-  const handleThemeChange = React.useCallback((dark: boolean) => {
-    const root = document.documentElement;
-    const theme = dark ? "dark" : "light";
-
-    root.classList.toggle("dark", dark);
-    localStorage.setItem("theme", theme);
-    window.__INITIAL_THEME__ = theme;
-  }, []);
+  const { getSetting, setSetting } = useSettings()
+  const isDark = getSetting('theme', 'light') === 'dark'
   
   const toggleDarkMode = React.useCallback(() => {
-    setIsDark(prev => {
-      const newValue = !prev;
-      handleThemeChange(newValue);
-      return newValue;
-    });
-  }, [handleThemeChange]);
+    const newTheme = isDark ? 'light' : 'dark'
+    setSetting('theme', newTheme)
+    document.documentElement.classList.toggle('dark', !isDark)
+  }, [isDark, setSetting])
   
   React.useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     
     const handleSystemThemeChange = (e: MediaQueryListEvent) => {
       if (!localStorage.getItem("theme")) {
-        setIsDark(e.matches);
-        handleThemeChange(e.matches);
+        setSetting('theme', e.matches ? 'dark' : 'light')
+        document.documentElement.classList.toggle('dark', e.matches)
       }
     };
 
     mediaQuery.addEventListener("change", handleSystemThemeChange);
     return () => mediaQuery.removeEventListener("change", handleSystemThemeChange);
-  }, [handleThemeChange]);
+  }, [setSetting]);
 
   return (
     <Button

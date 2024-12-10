@@ -1,6 +1,4 @@
 import { Viewer } from '@/components/viewer';
-//import { loadComponents } from './loadComponents';
-//import { loadExamples } from './loadExamples';
 import { loadBlocks } from './loadBlocks';
 
 export function HeroComponentsPage() {

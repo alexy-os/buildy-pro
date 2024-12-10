@@ -7,21 +7,51 @@ interface Block {
     code: string;
 }
 
-// Automatic component imports
-const components = import.meta.glob<{ [key: string]: React.ComponentType }>(
-    './examples/*.tsx',
+// Define both sets of components and code files
+const baseComponents = import.meta.glob<{ [key: string]: React.ComponentType }>(
+    `./base/*.tsx`,
     { eager: true }
 );
 
-// Automatic code imports
-const codeFiles = import.meta.glob<string>(
-    './examples/*.tsx',
+const baseCodeFiles = import.meta.glob<string>(
+    `./base/*.tsx`,
     { 
         eager: true, 
         query: '?raw',
         import: 'default'
     }
 );
+
+const advancedComponents = import.meta.glob<{ [key: string]: React.ComponentType }>(
+    `./advanced/*.tsx`,
+    { eager: true }
+);
+
+const advancedCodeFiles = import.meta.glob<string>(
+    `./advanced/*.tsx`,
+    { 
+        eager: true, 
+        query: '?raw',
+        import: 'default'
+    }
+);
+
+// Get mode from localStorage directly
+let components = baseComponents;
+let codeFiles = baseCodeFiles;
+
+try {
+    const settings = localStorage.getItem('appSettings');
+    if (settings) {
+        const { codeMode } = JSON.parse(settings);
+        if (codeMode === 'advanced') {
+            components = advancedComponents;
+            codeFiles = advancedCodeFiles;
+        }
+    }
+} catch (error) {
+    console.error('Error reading settings:', error);
+}
 
 export const loadBlocks: Block[] = Object.entries(components).map(([path, module]) => {
     // Получаем имя файла и проверяем его формат

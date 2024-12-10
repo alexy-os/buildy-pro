@@ -32,19 +32,19 @@ const PREVIEW_COMPONENTS = [
     title: "Features",
     description: "Showcase your product's features with elegant layouts",
     icon: Sparkles,
-    path: "#"
+    path: "/components/features"
   },
   {
     title: "CTA Sections",
     description: "Convert visitors with compelling call-to-action sections",
     icon: Megaphone,
-    path: "#"
+    path: "/components/cta"
   },
   {
     title: "Blog Layouts",
     description: "Beautiful blog layouts for your content",
     icon: ScrollText,
-    path: "#"
+    path: "/components/blog"
   },
 ] as const;
 
