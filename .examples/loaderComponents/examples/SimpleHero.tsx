@@ -21,4 +21,4 @@ const SimpleHero: React.FC = () => {
     );
 };
 
-export default SimpleHero; 
+export default SimpleHero;
