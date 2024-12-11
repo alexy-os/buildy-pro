@@ -39,7 +39,7 @@ export const ViewerCode: React.FC<ViewerCodeProps> = ({ code, language = 'typesc
         <pre className="overflow-x-auto text-sm">
             <code
                 ref={codeRef}
-                className={`language-${language} bg-code-viewer p-4`}
+                className={`language-${language} dark:bg-code-viewer p-4`}
                 dangerouslySetInnerHTML={createMarkup()}
             />
         </pre>
