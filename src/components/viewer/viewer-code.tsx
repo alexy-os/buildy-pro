@@ -36,10 +36,10 @@ export const ViewerCode: React.FC<ViewerCodeProps> = ({ code, language = 'typesc
     };
 
     return (
-        <pre className="overflow-auto rounded-md bg-muted p-4">
+        <pre className="overflow-x-auto text-sm">
             <code
                 ref={codeRef}
-                className={`language-${language} text-sm`}
+                className={`language-${language} bg-code-viewer p-4`}
                 dangerouslySetInnerHTML={createMarkup()}
             />
         </pre>

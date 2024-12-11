@@ -10,28 +10,29 @@ declare global {
 }
 
 export function DarkMode() {
-  const { getSetting, setSetting } = useSettings()
-  const isDark = getSetting('theme', 'light') === 'dark'
+  const { getSetting, setSetting } = useSettings();
+  const [mounted, setMounted] = React.useState(false);
   
+  // Определяем текущую тему
+  const theme = getSetting('theme', window.__INITIAL_THEME__);
+  const isDark = theme === 'dark';
+  
+  // Обработчик переключения темы
   const toggleDarkMode = React.useCallback(() => {
-    const newTheme = isDark ? 'light' : 'dark'
-    setSetting('theme', newTheme)
-    document.documentElement.classList.toggle('dark', !isDark)
-  }, [isDark, setSetting])
-  
-  React.useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    
-    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
-      if (!localStorage.getItem("theme")) {
-        setSetting('theme', e.matches ? 'dark' : 'light')
-        document.documentElement.classList.toggle('dark', e.matches)
-      }
-    };
+    const newTheme = isDark ? 'light' : 'dark';
+    setSetting('theme', newTheme);
+    document.documentElement.classList.toggle('dark');
+  }, [isDark, setSetting]);
 
-    mediaQuery.addEventListener("change", handleSystemThemeChange);
-    return () => mediaQuery.removeEventListener("change", handleSystemThemeChange);
-  }, [setSetting]);
+  // Устанавливаем mounted после первого рендера
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Избегаем гидратации
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <Button

@@ -62,7 +62,7 @@ const Viewer = React.forwardRef<HTMLDivElement, ViewerProps>(
                     </div>
                 </div>
 
-                <div className="p-4">
+                <div className="overflow-x-auto">
                     {mode === 'preview' ? (
                         <ViewerPreview>{preview}</ViewerPreview>
                     ) : (

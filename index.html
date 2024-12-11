@@ -8,7 +8,8 @@
     // Immediate theme detection to prevent flash
     (function() {
       try {
-        const savedTheme = localStorage.getItem("theme");
+        const appSettings = JSON.parse(localStorage.getItem('appSettings') || '{}');
+        const savedTheme = appSettings.theme;
         const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
         
         if (savedTheme === "dark" || (!savedTheme && systemDark)) {
@@ -18,7 +19,7 @@
         // Store the initial theme to avoid re-calculations
         window.__INITIAL_THEME__ = savedTheme || (systemDark ? "dark" : "light");
       } catch (e) {
-        console.error("Theme initialization failed:", e);
+        console.error("Theme initialisation failed:", e);
       }
     })();
   </script>

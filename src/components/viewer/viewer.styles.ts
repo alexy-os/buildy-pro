@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 export const viewerVariants = cva(
-    'w-full rounded-lg border border-border bg-background',
+    'w-full rounded-lg border border-border bg-background overflow-hidden',
     {
         variants: {
             size: {
