@@ -76,10 +76,10 @@ export const HeroMediaGrid = () => (
           </div>
           <div className="flex flex-col md:flex-row gap-4">
             <Button size={Context.buttons[0].size} className={Context.buttons[0].className} variant={Context.buttons[0].variant}>
-              {Context.buttons[0].text} <PhoneCall className="w-4 h-4" />
+              {Context.buttons[0].text} <PhoneCall />
             </Button>
             <Button size={Context.buttons[1].size} className="gap-4">
-              {Context.buttons[1].text} <GraduationCap className="w-4 h-4" />
+              {Context.buttons[1].text} <GraduationCap />
             </Button>
           </div>
         </div>

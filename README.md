@@ -75,4 +75,4 @@ The platform is actively growing with:
 - Enhanced A/B testing capabilities
 - Performance analytics integration
 
-This solution addresses the critical gap in the React ecosystem where marketing-focused, production-ready components are scarce, despite the growing demand for rapid website development with high-quality, conversion-optimised designs.
+This solution addresses the critical gap in the shadcn/ui ecosystem where marketing-focused, production-ready ui components are scarce, despite the growing demand for rapid website development with high-quality, conversion-optimised designs.

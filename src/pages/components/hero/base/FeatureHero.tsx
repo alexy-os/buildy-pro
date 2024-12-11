@@ -11,12 +11,12 @@ const content = {
 };
 
 export const FeatureHero = () => (
-    <div className="grid min-h-[600px] grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+    <div className="grid bg-rose-500 min-h-screen grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <div className="flex flex-col items-start space-y-4">
-            <h1 className="text-4xl font-bold sm:text-6xl">
+            <h1 className="text-4xl sm:text-6xl">
                 {content.title}
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg">
                 {content.description}
             </p>
             <div className="flex gap-4">
@@ -24,6 +24,6 @@ export const FeatureHero = () => (
                 <Button variant="outline">{content.buttons[1].text}</Button>
             </div>
         </div>
-        <div className="aspect-square rounded-lg bg-muted" />
+        <div className="aspect-square rounded bg-muted" />
     </div>
 );
