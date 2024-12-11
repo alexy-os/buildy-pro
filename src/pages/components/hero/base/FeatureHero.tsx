@@ -11,7 +11,7 @@ const content = {
 };
 
 export const FeatureHero = () => (
-    <div className="grid bg-rose-500 min-h-screen grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+    <div className="grid min-h-96 grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <div className="flex flex-col items-start space-y-4">
             <h1 className="text-4xl sm:text-6xl">
                 {content.title}
