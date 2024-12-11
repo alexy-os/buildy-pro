@@ -4,6 +4,7 @@ import { HomePage } from "@/pages/home";
 import { DocsPage } from "@/pages/docs";
 import { ComponentsPage } from "@/pages/components";
 import { HeroComponentsPage } from "@/pages/components/hero";
+import { ComponentsLayout } from "@/layouts/ComponentsLayout";
 
 export const routes: RouteObject[] = [
   {
@@ -20,6 +21,7 @@ export const routes: RouteObject[] = [
       },
       {
         path: "components",
+        element: <ComponentsLayout />,
         children: [
           {
             index: true,

@@ -12,7 +12,6 @@ export const ViewerCode: React.FC<ViewerCodeProps> = ({ code, language = 'typesc
 
     React.useEffect(() => {
         if (window.hljs) {
-            // Конфигурируем highlight.js для игнорирования предупреждений о безопасности
             window.hljs.configure({
                 ignoreUnescapedHTML: true
             });
@@ -23,7 +22,6 @@ export const ViewerCode: React.FC<ViewerCodeProps> = ({ code, language = 'typesc
         }
     }, [code]);
 
-    // Улучшенная обработка HTML-сущностей
     const createMarkup = () => {
         return {
             __html: code
@@ -36,10 +34,10 @@ export const ViewerCode: React.FC<ViewerCodeProps> = ({ code, language = 'typesc
     };
 
     return (
-        <pre className="overflow-x-auto text-sm">
+        <pre className="overflow-x-auto bg-code-viewer text-[.8em] !p-0">
             <code
                 ref={codeRef}
-                className={`language-${language} dark:bg-code-viewer p-4`}
+                className={`language-${language} !bg-transparent !p-4`}
                 dangerouslySetInnerHTML={createMarkup()}
             />
         </pre>
