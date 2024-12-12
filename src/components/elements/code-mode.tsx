@@ -15,7 +15,7 @@ export function CodeModeSelect() {
   const handleValueChange = (value: CodeMode) => {
     setSetting('codeMode', value)
     window.location.reload()
-  }
+  } 
   
   return (
     <Select value={codeMode} onValueChange={handleValueChange}>

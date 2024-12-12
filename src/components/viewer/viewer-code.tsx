@@ -34,7 +34,7 @@ export const ViewerCode: React.FC<ViewerCodeProps> = ({ code, language = 'typesc
     };
 
     return (
-        <pre className="overflow-x-auto bg-code-viewer text-[.8em] !p-0">
+        <pre className="overflow-auto max-h-96 bg-code-viewer text-[.8em] !p-0">
             <code
                 ref={codeRef}
                 className={`language-${language} !bg-transparent !p-4`}
