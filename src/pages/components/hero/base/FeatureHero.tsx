@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 
-// Simple content configuration
 const content = {
     title: "Transform Your Workflow",
     description: "Streamline your development process with our powerful tools and components.",
@@ -15,9 +14,9 @@ export const FeatureHero = () => (
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="flex flex-col items-start space-y-4">
-                    <h1 className="text-4xl sm:text-6xl">
+                    <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold">
                         {content.title}
-                    </h1>
+                    </h2>
                     <p className="text-lg">
                         {content.description}
                     </p>

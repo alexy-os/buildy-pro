@@ -1,15 +1,16 @@
-import { GraduationCap, PhoneCall } from "lucide-react";
+import { BookOpen, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-interface Context {
+interface content {
   size: "default" | "lg" | "sm" | "icon";
   text: string;
   variant: "default" | "outline";
   className: string;
+  headingTag?: 'h1' | 'h2' | 'h3';
 }
 
-const Context = {
+const content = {
   badge: {
     text: "We're building",
     variant: "outline",
@@ -17,24 +18,26 @@ const Context = {
   },
   title: {
     text: "Build your next UI with shadcn components",
-    className: "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
+    className: "text-2xl md:text-3xl lg:text-4xl font-bold",
   },
   description: {
     text: "Beautifully designed components built with Radix UI and Tailwind CSS. Open source and free to use in your applications.",
-    className: "leading-7 [&:not(:first-child)]:mt-6 text-muted-foreground",
+    className: "text-muted-foreground",
   },
   buttons: [
     {
       text: "Documentation", 
       variant: "default" as const,
       size: "lg" as const,
-      className: "items-center gap-2"
+      className: "items-center gap-2",
+      icon: <BookOpen />
     },
     {
       text: "GitHub",
       variant: "outline" as const,
       size: "lg" as const,
-      className: "items-center gap-2"
+      className: "items-center gap-2",
+      icon: <Github />
     }
   ],
   images: {
@@ -58,29 +61,28 @@ const Context = {
   },
 }
 
-export const HeroMediaGrid = () => (
-  <div className="w-full py-20 lg:py-40">
-    <div className="container mx-auto">
-      <div className="grid grid-cols-1 gap-8 items-center md:grid-cols-2">
+export const HeroMediaGrid = ({ headingTag: Title = 'h2' }: content) => (
+  <section className="w-full py-16 lg:py-32">
+    <div className="container mx-auto px-4 md:px-6 lg:px-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         <div className="flex gap-4 flex-col">
           <div>
-            <Badge variant="outline">{Context.badge.text}</Badge>
+            <Badge variant="outline">{content.badge.text}</Badge>
           </div>
           <div className="flex gap-4 flex-col">
-            <h1 className={Context.title.className}>
-                {Context.title.text}
-            </h1>
-            <p className={Context.description.className}>
-              {Context.description.text}
+            <Title className={content.title.className}>
+                {content.title.text}
+            </Title>
+            <p className={content.description.className}>
+              {content.description.text}
             </p>
           </div>
           <div className="flex flex-col md:flex-row gap-4">
-            <Button size={Context.buttons[0].size} className={Context.buttons[0].className} variant={Context.buttons[0].variant}>
-              {Context.buttons[0].text} <PhoneCall />
-            </Button>
-            <Button size={Context.buttons[1].size} className="gap-4">
-              {Context.buttons[1].text} <GraduationCap />
-            </Button>
+            {content.buttons.map((button, index) => (
+              <Button key={index} size={button.size} className={button.className} variant={button.variant}>
+                {button.text} {button.icon}
+              </Button>
+            ))}
           </div>
         </div>
         <div className="grid grid-cols-2 gap-8">
@@ -90,5 +92,5 @@ export const HeroMediaGrid = () => (
         </div>
       </div>
     </div>
-  </div>
+  </section>
 );

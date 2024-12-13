@@ -1,10 +1,11 @@
 import { type RouteObject } from "react-router-dom";
-import { RootLayout } from "@/layouts/RootLayout";
 import { HomePage } from "@/pages/home";
 import { DocsPage } from "@/pages/docs";
+import { RootLayout } from "@/layouts/RootLayout";
+import { ComponentsLayout } from "@/layouts/ComponentsLayout";
 import { ComponentsPage } from "@/pages/components";
 import { HeroComponentsPage } from "@/pages/components/hero";
-import { ComponentsLayout } from "@/layouts/ComponentsLayout";
+import { FeaturesComponentsPage } from "@/pages/components/features";
 
 export const routes: RouteObject[] = [
   {
@@ -30,6 +31,10 @@ export const routes: RouteObject[] = [
           {
             path: "hero",
             element: <HeroComponentsPage />,
+          },
+          {
+            path: "features",
+            element: <FeaturesComponentsPage />,
           },
           {
             path: "*",
