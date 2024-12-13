@@ -55,7 +55,7 @@ export const CtaCenteredSection = () => (
             {content.description}
           </p>
         </div>
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col md:flex-row gap-8">
           {content.buttons?.map((button) => (
             <Button key={button.id} className={button.className} variant={button.variant} size={button.size}>
               {button.text} {button.icon}
