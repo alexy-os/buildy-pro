@@ -86,9 +86,9 @@ export const HeroMediaGrid = ({ headingTag: Title = 'h2' }: content) => (
           </div>
         </div>
         <div className="grid grid-cols-2 gap-8">
-          <div className="bg-muted rounded-md aspect-square"></div>
-          <div className="bg-muted rounded-md row-span-2"></div>
-          <div className="bg-muted rounded-md aspect-square"></div>
+          {content.images.grid.items.map((image, index) => (
+            <div key={index} className={image.className}></div>
+          ))}
         </div>
       </div>
     </div>

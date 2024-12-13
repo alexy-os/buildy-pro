@@ -21,8 +21,11 @@ export const FeatureHero = () => (
                         {content.description}
                     </p>
                     <div className="flex gap-4">
-                        <Button>{content.buttons[0].text}</Button>
-                        <Button variant="outline">{content.buttons[1].text}</Button>
+                        {content.buttons.map((button, index) => (
+                            <Button key={index} variant={index === 1 ? "outline" : undefined}>
+                                {button.text}
+                            </Button>
+                        ))}
                     </div>
                 </div>
                 <div className="aspect-square rounded bg-muted" />

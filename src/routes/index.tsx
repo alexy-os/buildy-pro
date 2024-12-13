@@ -5,7 +5,9 @@ import { RootLayout } from "@/layouts/RootLayout";
 import { ComponentsLayout } from "@/layouts/ComponentsLayout";
 import { ComponentsPage } from "@/pages/components";
 import { HeroComponentsPage } from "@/pages/components/hero";
+import { CTAComponentsPage } from "@/pages/components/cta";
 import { FeaturesComponentsPage } from "@/pages/components/features";
+import { BlogComponentsPage } from "@/pages/components/blog";
 
 export const routes: RouteObject[] = [
   {
@@ -35,6 +37,14 @@ export const routes: RouteObject[] = [
           {
             path: "features",
             element: <FeaturesComponentsPage />,
+          },
+          {
+            path: "cta",
+            element: <CTAComponentsPage />,
+          },
+          {
+            path: "blog",
+            element: <BlogComponentsPage />,
           },
           {
             path: "*",
