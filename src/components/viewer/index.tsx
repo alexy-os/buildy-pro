@@ -22,6 +22,7 @@ const Viewer = React.forwardRef<HTMLDivElement, ViewerProps>(
         });
 
         const handleCodeModeChange = React.useCallback((newMode: ViewMode) => {
+            setMode('preview');
             setCodeMode(newMode);
             localStorage.setItem(LOCAL_STORAGE_KEY, newMode);
         }, []);

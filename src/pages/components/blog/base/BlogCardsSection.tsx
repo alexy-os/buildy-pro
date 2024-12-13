@@ -42,7 +42,7 @@ export const BlogCardsSection = () => (
       </header>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {content.articles?.map((article) => (
-          <article key={article.id} className="flex flex-col gap-4 hover:opacity-75 cursor-pointer">
+          <article id={article.id} key={article.id} className="flex flex-col gap-4 hover:opacity-75 cursor-pointer">
             <div 
               className="bg-muted rounded-md aspect-video mb-4"
               role="img"
