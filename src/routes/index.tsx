@@ -8,6 +8,8 @@ import { HeroComponentsPage } from "@/pages/components/hero";
 import { CTAComponentsPage } from "@/pages/components/cta";
 import { FeaturesComponentsPage } from "@/pages/components/features";
 import { BlogComponentsPage } from "@/pages/components/blog";
+import { BusinessComponentsPage } from "@/pages/components/business";
+
 
 export const routes: RouteObject[] = [
   {
@@ -37,6 +39,10 @@ export const routes: RouteObject[] = [
           {
             path: "features",
             element: <FeaturesComponentsPage />,
+          },
+          {
+            path: "business",
+            element: <BusinessComponentsPage />,
           },
           {
             path: "cta",

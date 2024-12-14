@@ -2,10 +2,11 @@ import React from "react";
 import { Section } from "@/components/partials/section";
 import { Link } from "react-router-dom";
 import { 
-  LayoutTemplate, 
-  Sparkles, 
-  Megaphone, 
-  ScrollText 
+  LayoutTemplate,
+  Sparkles,
+  Megaphone,
+  ScrollText,
+  Goal
 } from "lucide-react";
 import {
   Card,
@@ -33,6 +34,12 @@ const PREVIEW_COMPONENTS = [
     description: "Showcase your product's features with elegant layouts",
     icon: Sparkles,
     path: "/components/features"
+  },
+  {
+    title: "Business",
+    description: "Managing a business shouldn't be complicated",
+    icon: Goal,
+    path: "/components/business"
   },
   {
     title: "CTA Sections",
