@@ -15,7 +15,7 @@ type Content = {
 };
 
 const content: Content = {
-  promo: "Platform",
+  promo: "buildy/ui",
   title: "Streamline Your Business Operations",
   description:
     "Managing a business shouldn't be complicated. With Buildy/UI, create seamless workflows and improve efficiency effortlessly.",
