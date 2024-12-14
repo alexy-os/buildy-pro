@@ -9,8 +9,8 @@ const content = {
     className: "text-sm font-medium"
   },
   title: {
-    text: "Build your next UI with shadcn components",
-    className: "text-2xl md:text-3xl lg:text-4xl font-bold"
+    text: "Build with shadcn ui components",
+    className: "text-3xl md:text-4xl lg:text-5xl font-bold"
   },
   description: {
     text: "Beautifully designed components built with Radix UI and Tailwind CSS. Open source and free to use in your applications.",

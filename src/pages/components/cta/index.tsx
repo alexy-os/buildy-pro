@@ -10,6 +10,9 @@ export function CTAComponentsPage() {
                     <p>
                         A collection of CTA section examples that you can use in your projects.
                     </p>
+                    <p className="font-bold">
+                        work in progress.... Please wait
+                    </p>
                 </div>
 
                 <div className="grid gap-8">

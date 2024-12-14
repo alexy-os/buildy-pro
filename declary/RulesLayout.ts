@@ -8,7 +8,7 @@ const Layout = {
       {
         tag: "h2",
         baseSize: {
-          className: "text-2xl md:text-3xl lg:text-4xl font-bold"
+          className: "text-3xl md:text-4xl lg:text-5xl font-bold"
         },
         largeSize: {
           className: "text-2xl md:text-4xl lg:text-6xl font-bold"
@@ -16,9 +16,9 @@ const Layout = {
       }
     ],
   
-    description: "text-lg text-muted-foreground max-w-xl",
+    description: "text-lg text-muted-foreground max-w-2xl",
   
-    subtitle: "text-lg text-muted-foreground max-w-xl",
+    subtitle: "text-lg text-muted-foreground max-w-2xl",
   
     badge: [ "default", "outline" ],
   
@@ -45,6 +45,6 @@ const Layout = {
       aspectSquare: "aspect-square",
     },
   
-    map: "content.array.map((item, index))",
+    map: "content.array.map((item))",
   };
   

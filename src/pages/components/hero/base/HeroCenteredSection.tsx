@@ -40,18 +40,18 @@ const content: Content = {
   ]
 } as const;
 
-export const CtaCenteredSection = () => (
+export const HeroCenteredSection = () => (
   <section className="w-full py-16 lg:py-32">
     <div className="container mx-auto px-4 md:px-6 lg:px-8">
       <div className="flex flex-col text-center gap-8 items-center">
         <div>
-          <Badge>{content.badge}</Badge>
+          <Badge className="rounded-full">{content.badge}</Badge>
         </div>
         <div className="flex flex-col gap-4">
-          <h2 className="max-w-xl text-3xl md:text-4xl lg:text-6xl font-bold">
+          <h2 className="max-w-2xl text-3xl md:text-4xl lg:text-6xl font-bold">
             {content.title}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-xl">
+          <p className="text-lg text-muted-foreground max-w-2xl">
             {content.description}
           </p>
         </div>

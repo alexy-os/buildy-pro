@@ -15,12 +15,12 @@
 
 ### Title
 - **Tags**: `h2`, `h1`
-- **Base Size**: `"text-2xl md:text-3xl lg:text-4xl font-bold"`
+- **Base Size**: `"text-3xl md:text-4xl lg:text-5xl font-bold"`
 - **Large Size**: `"text-3xl md:text-4xl lg:text-6xl font-bold"`
 
 ### Typography
-- **Description**: `"text-lg text-muted-foreground max-w-xl"`
-- **Subtitle**: `"text-lg text-muted-foreground max-w-xl"`
+- **Description**: `"text-lg text-muted-foreground max-w-2xl"`
+- **Subtitle**: `"text-lg text-muted-foreground max-w-2xl"`
 
 ### Components
 - **Badge Variants**: `["default", "outline"]`

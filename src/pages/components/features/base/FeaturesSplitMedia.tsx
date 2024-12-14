@@ -31,10 +31,10 @@ export const FeaturesSplitMedia = () => (
               <Badge variant="outline">{content.badge}</Badge>
             </div>
             <div className="flex gap-2 flex-col">
-              <h2 className="max-w-xl text-2xl md:text-3xl lg:text-4xl font-bold text-left">
+              <h2 className="max-w-2xl text-3xl md:text-4xl lg:text-5xl font-bold text-left">
                 {content.title}
               </h2>
-              <p className="text-lg text-muted-foreground max-w-xl text-left">
+              <p className="text-lg text-muted-foreground max-w-2xl text-left">
                 {content.description}
               </p>
             </div>

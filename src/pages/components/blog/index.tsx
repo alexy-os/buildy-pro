@@ -6,9 +6,9 @@ export function BlogComponentsPage() {
         <div className="container mx-auto px-4 py-10">
             <div className="space-y-8">
                 <div className="prose dark:prose-invert">
-                    <h1>CTA Sections</h1>
+                    <h1>Blog Sections</h1>
                     <p>
-                        A collection of CTA section examples that you can use in your projects.
+                        A collection of blog section examples that you can use in your projects.
                     </p>
                 </div>
 
