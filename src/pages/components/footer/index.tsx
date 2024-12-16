@@ -1,14 +1,14 @@
 import { Viewer } from '@/components/viewer';
 import { loadBlocks } from './loadBlocks';
 
-export function CTAComponentsPage() {
+export function FooterComponentsPage() {
     return (
         <div className="container mx-auto px-4 py-10">
             <div className="space-y-8">
                 <div className="prose dark:prose-invert">
-                    <h1>CTA Sections</h1>
+                    <h1>Footer Sections</h1>
                     <p>
-                        A collection of CTA section examples that you can use in your projects.
+                        A collection of footer section examples that you can use in your projects.
                     </p>
                 </div>
 

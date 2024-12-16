@@ -1,20 +1,21 @@
 import { Viewer } from '@/components/viewer';
 import { loadBlocks } from './loadBlocks';
 
-export function CTAComponentsPage() {
+export function NavbarComponentsPage() {
     return (
         <div className="container mx-auto px-4 py-10">
             <div className="space-y-8">
                 <div className="prose dark:prose-invert">
-                    <h1>CTA Sections</h1>
+                    <h1>Navbar Sections</h1>
                     <p>
-                        A collection of CTA section examples that you can use in your projects.
+                        A collection of navbars section examples that you can use in your projects.
                     </p>
-                </div>
+                </div> 
 
                 <div className="grid gap-8">
                         {loadBlocks.map((example) => (
                         <Viewer
+                            htmlBtn={false}
                             key={example.id}
                             title={example.title}
                             code={example.code}

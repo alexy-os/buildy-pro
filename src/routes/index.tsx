@@ -9,6 +9,8 @@ import { CTAComponentsPage } from "@/pages/components/cta";
 import { FeaturesComponentsPage } from "@/pages/components/features";
 import { BlogComponentsPage } from "@/pages/components/blog";
 import { BusinessComponentsPage } from "@/pages/components/business";
+import { FooterComponentsPage } from "@/pages/components/footer";
+import { NavbarComponentsPage } from "@/pages/components/navbar";
 
 
 export const routes: RouteObject[] = [
@@ -45,12 +47,20 @@ export const routes: RouteObject[] = [
             element: <BusinessComponentsPage />,
           },
           {
+            path: "blog",
+            element: <BlogComponentsPage />,
+          },
+          {
             path: "cta",
             element: <CTAComponentsPage />,
           },
           {
-            path: "blog",
-            element: <BlogComponentsPage />,
+            path: "navbar",
+            element: <NavbarComponentsPage />,
+          },
+          {
+            path: "footer",
+            element: <FooterComponentsPage />,
           },
           {
             path: "*",

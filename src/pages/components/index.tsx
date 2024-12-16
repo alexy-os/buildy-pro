@@ -1,11 +1,13 @@
 import React from "react";
 import { Section } from "@/components/partials/section";
 import { Link } from "react-router-dom";
-import { 
+import {
+  PanelBottomDashed,
   LayoutTemplate,
   Sparkles,
   Megaphone,
   ScrollText,
+  AppWindow,
   Goal
 } from "lucide-react";
 import {
@@ -42,17 +44,29 @@ const PREVIEW_COMPONENTS = [
     path: "/components/business"
   },
   {
+    title: "Blog Layouts",
+    description: "Beautiful blog layouts for your content",
+    icon: ScrollText,
+    path: "/components/blog"
+  },
+  {
+    title: "Navbar Sections",
+    description: "Beautiful navbars sections for your website + mobile version",
+    icon: AppWindow,
+    path: "/components/navbar"
+  },
+  {
     title: "CTA Sections",
     description: "Convert visitors with compelling call-to-action sections",
     icon: Megaphone,
     path: "/components/cta"
   },
   {
-    title: "Blog Layouts",
-    description: "Beautiful blog layouts for your content",
-    icon: ScrollText,
-    path: "/components/blog"
-  },
+    title: "Footer Sections",
+    description: "Simplify footers layouts for your website or landing page",
+    icon: PanelBottomDashed,
+    path: "/components/footer"
+  }
 ] as const;
 
 const PreviewCard = React.memo(({ title, description, icon: Icon, path }: typeof PREVIEW_COMPONENTS[number]) => (
