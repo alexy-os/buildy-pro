@@ -29,7 +29,7 @@ const content = {
 export const PromoServiceLottie = () => {
   return (
     <section className="w-full py-8 lg:py-16">
-      <div className="container mx-auto grid lg:grid-cols-[1fr,1fr] gap-12 place-items-center">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 grid lg:grid-cols-[1fr,1fr] gap-12 place-items-center">
         <div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
             <span className="bg-gradient-to-b from-teal-500 to-teal-700 text-transparent bg-clip-text">
@@ -45,8 +45,8 @@ export const PromoServiceLottie = () => {
 
           <div className="flex flex-col gap-6">
             {content.serviceList.map(({ icon, title, description }) => (
-              <Card key={title} className="flex flex-col relative p-[1px] bg-gradient-to-br from-teal-600 to-teal-300 dark:to-slate-600 rounded-lg">
-                <div className="bg-white dark:bg-slate-900 rounded-lg">
+              <Card key={title} className="flex flex-col relative p-[1px] bg-gradient-to-br from-teal-600 to-teal-300 dark:to-slate-600 rounded-2xl">
+                <div className="bg-white dark:bg-slate-900 rounded-2xl">
                 <CardHeader className="space-y-1 flex md:flex-row justify-start items-start gap-4">
                   <div className="bg-gradient-to-b from-teal-500 to-teal-700 p-3 rounded-full">{icon}</div>
                   <div>

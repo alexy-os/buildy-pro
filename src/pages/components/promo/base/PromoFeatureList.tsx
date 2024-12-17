@@ -1,0 +1,101 @@
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import responsiveImage from "@/assets/img/strategy.svg";
+import intuitiveImage from "@/assets/img/strategy.svg";
+import aiImage from "@/assets/img/strategy.svg";
+
+interface FeatureProps {
+  title: string;
+  description: string;
+  image: string;
+}
+
+const content = {
+  promotitle: "Powerful",
+  title: "Features",
+  description:
+    "Explore the core features of Buildy/UI designed to accelerate your development process and deliver seamless user experiences.",
+  features: [
+    {
+      title: "Responsive Design",
+      description:
+        "Create interfaces that adapt perfectly to any device with minimal effort.",
+      image: responsiveImage,
+    },
+    {
+      title: "Intuitive User Interface",
+      description:
+        "Build clean, accessible, and intuitive interfaces with pre-designed components.",
+      image: intuitiveImage,
+    },
+    {
+      title: "AI-Powered Insights",
+      description:
+        "Enhance your workflow with intelligent suggestions and prebuilt patterns.",
+      image: aiImage,
+    },
+  ] as FeatureProps[],
+  featureList: [
+    "Dark/Light Theme",
+    "Reviews",
+    "Feature Highlights",
+    "Pricing",
+    "Contact Form",
+    "Our Team",
+    "Responsive Design",
+    "Newsletter",
+    "Minimalist Design",
+  ],
+} as const;
+
+export const PromoFeatureList = () => {
+  return (
+    <section className="container py-16 lg:py-32 space-y-8">
+      <header className="flex flex-col items-center gap-4 text-center">
+        <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold">
+          <span className="bg-gradient-to-b from-teal-500 to-teal-700 text-transparent bg-clip-text">
+          {content.promotitle}{" "}
+          </span>
+          {content.title}
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-2xl">
+          {content.description}
+        </p>
+      </header>
+
+      <div className="flex flex-wrap justify-center gap-4">
+        {content.featureList.map((feature) => (
+          <Badge key={feature} variant="secondary" className="text-sm">
+            {feature}
+          </Badge>
+        ))}
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {content.features.map(({ title, description, image }) => (
+          <Card key={title} className="flex flex-col rounded-2xl">
+            <CardHeader>
+              <CardTitle className="text-xl font-semibold">{title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground text-sm">{description}</p>
+            </CardContent>
+            <CardFooter className="pt-4">
+              <img
+                src={image}
+                alt={title}
+                className="w-[150px] lg:w-[250px] mx-auto"
+              />
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
+};
