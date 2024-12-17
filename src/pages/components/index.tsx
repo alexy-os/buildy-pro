@@ -111,7 +111,7 @@ const PreviewCard = React.memo(
         >
           <div className="aspect-[16/9] bg-secondary flex items-center justify-center group-hover:bg-muted/70 transition-colors">
             <Icon
-              className="h-12 w-12 text-muted-foreground/60 group-hover:text-amber-500/70 transition-colors"
+              className="h-12 w-12 text-muted-foreground/60 group-hover:text-sky-500/75 transition-colors"
               strokeWidth={1.4}
             />
           </div>
