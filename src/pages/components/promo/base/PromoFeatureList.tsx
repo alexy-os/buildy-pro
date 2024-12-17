@@ -59,7 +59,7 @@ export const PromoFeatureList = () => {
     <section className="container py-16 lg:py-32 space-y-8">
       <header className="flex flex-col items-center gap-4 text-center">
         <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold">
-          <span className="bg-gradient-to-b from-teal-500 to-teal-700 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-b from-sky-500 to-sky-700 text-transparent bg-clip-text">
           {content.promotitle}{" "}
           </span>
           {content.title}

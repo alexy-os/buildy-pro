@@ -46,7 +46,7 @@ export const PromoAboutSection = () => {
             <div className="flex flex-col justify-between">
                 <div className="pb-6">
                 <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold">
-                    <span className="bg-gradient-to-b from-teal-500 to-teal-700 text-transparent bg-clip-text">
+                    <span className="bg-gradient-to-b from-sky-500 to-sky-700 text-transparent bg-clip-text">
                     About
                     </span>{" "}
                     Buildy/UI
