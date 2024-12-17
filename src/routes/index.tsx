@@ -11,6 +11,7 @@ import { BlogComponentsPage } from "@/pages/components/blog";
 import { BusinessComponentsPage } from "@/pages/components/business";
 import { FooterComponentsPage } from "@/pages/components/footer";
 import { NavbarComponentsPage } from "@/pages/components/navbar";
+import { PromoComponentsPage } from "@/pages/components/promo";
 
 
 export const routes: RouteObject[] = [
@@ -53,6 +54,10 @@ export const routes: RouteObject[] = [
           {
             path: "cta",
             element: <CTAComponentsPage />,
+          },
+          {
+            path: "promo",
+            element: <PromoComponentsPage />,
           },
           {
             path: "navbar",

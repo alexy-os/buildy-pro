@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom"
 import { Menu, BookOpen, Layers, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/sheet";
 
 const content = {
   brand: {
@@ -55,6 +61,10 @@ const MobileNavigation = () => {
         <div className="mb-6">
           <Brand />
         </div>
+        <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+        <SheetDescription className="sr-only">
+          Main navigation for mobile devices
+        </SheetDescription>
         <nav className="flex flex-col space-y-2">
           {content.navigation.map((item) => (
             <Button 

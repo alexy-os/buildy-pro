@@ -3,7 +3,13 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { Menu, BookOpen, Layers, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/sheet";
 import {
   Accordion,
   AccordionContent,
@@ -89,10 +95,11 @@ type ListItemProps = React.ComponentPropsWithoutRef<"a"> & {
 }
 
 const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
-  ({ title, children, ...props }, ref) => (
+  ({ title, children, href, ...props }, ref) => (
     <li>
       <NavigationMenuLink asChild>
-        <a
+        <Link
+          to={href || ''}
           ref={ref}
           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
           {...props}
@@ -101,7 +108,7 @@ const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
-        </a>
+        </Link>
       </NavigationMenuLink>
     </li>
   )
@@ -127,6 +134,10 @@ const MobileNavigation = () => (
       <div className="mb-6">
         <Brand />
       </div>
+      <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+      <SheetDescription className="sr-only">
+        Main navigation for mobile devices
+      </SheetDescription>
       <Accordion type="single" collapsible className="w-full">
         {content.navigation.main.map((section) => (
           <AccordionItem key={section.id} value={section.id}>
@@ -207,11 +218,14 @@ const DesktopNavigation = () => (
       ))}
       {content.navigation.static.map((item) => (
         <NavigationMenuItem key={item.id}>
-          <Link to={item.path}>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+          <NavigationMenuLink asChild>
+            <Link 
+              to={item.path} 
+              className={navigationMenuTriggerStyle()}
+            >
               {item.label}
-            </NavigationMenuLink>
-          </Link>
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
       ))}
     </NavigationMenuList>
