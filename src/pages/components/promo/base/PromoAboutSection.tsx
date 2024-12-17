@@ -36,7 +36,8 @@ export const PromoAboutSection = () => {
   return (
     <section className="w-full py-8 lg:py-16">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="bg-muted/50 border rounded-2xl py-12">
+      <div className="relative p-[1px] bg-gradient-to-br from-sky-600 to-sky-300 dark:to-slate-600 rounded-2xl">
+        <div className="bg-secondary border rounded-2xl py-12">
             <div className="px-6 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
             <img
                 src={wireframe}
@@ -45,7 +46,7 @@ export const PromoAboutSection = () => {
             />
             <div className="flex flex-col justify-between">
                 <div className="pb-6">
-                <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                     <span className="bg-gradient-to-b from-sky-500 to-sky-700 text-transparent bg-clip-text">
                     About
                     </span>{" "}
@@ -56,6 +57,7 @@ export const PromoAboutSection = () => {
                 </p>
                 </div>
                 <Statistics />
+            </div>
             </div>
             </div>
         </div>

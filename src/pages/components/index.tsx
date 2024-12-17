@@ -109,7 +109,7 @@ const PreviewCard = React.memo(
           data-confetti={path}
           onMouseEnter={handleMouseEnter}
         >
-          <div className="aspect-[16/9] bg-muted/50 flex items-center justify-center group-hover:bg-muted/70 transition-colors">
+          <div className="aspect-[16/9] bg-secondary flex items-center justify-center group-hover:bg-muted/70 transition-colors">
             <Icon
               className="h-12 w-12 text-muted-foreground/60 group-hover:text-amber-500/70 transition-colors"
               strokeWidth={1.4}

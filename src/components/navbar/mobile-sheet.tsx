@@ -81,12 +81,14 @@ export function MobileSheet() {
   const previousPath = React.useRef(location.pathname);
 
   const handleNavigation = React.useCallback((path: string) => {
-    if (previousPath.current !== path) {
+    if (location.pathname !== path) {
       setOpen(false);
       navigate(path);
       previousPath.current = path;
+    } else {
+      setOpen(false);
     }
-  }, [navigate]);
+  }, [navigate, location.pathname]);
 
   const handleBrandClick = React.useCallback(() => {
     setOpen(false);

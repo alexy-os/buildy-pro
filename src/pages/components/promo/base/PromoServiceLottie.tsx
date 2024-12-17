@@ -46,7 +46,7 @@ export const PromoServiceLottie = () => {
           <div className="flex flex-col gap-6">
             {content.serviceList.map(({ icon, title, description }) => (
               <Card key={title} className="flex flex-col relative p-[1px] bg-gradient-to-br from-sky-600 to-sky-300 dark:to-slate-600 rounded-2xl">
-                <div className="bg-white dark:bg-slate-900 rounded-2xl">
+                <div className="bg-secondary rounded-2xl">
                 <CardHeader className="space-y-1 flex md:flex-row justify-start items-start gap-4">
                   <div className="bg-gradient-to-b from-sky-500 to-sky-700 p-3 rounded-full">{icon}</div>
                   <div>

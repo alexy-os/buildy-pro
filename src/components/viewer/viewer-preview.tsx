@@ -105,7 +105,7 @@ export const ViewerPreview: React.FC<ViewerPreviewProps> = ({ children }) => {
                     <ExternalLinkIcon className="h-4 w-4" />
                 </Button>
             </div>
-            <div className="p-4">
+            <div className="">
                 {children}
             </div>
         </div>

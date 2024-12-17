@@ -56,9 +56,9 @@ const content = {
 
 export const PromoFeatureList = () => {
   return (
-    <section className="container py-16 lg:py-32 space-y-8">
+    <section className="container mx-auto px-4 md:px-6 lg:px-8 py-16 lg:py-32 space-y-8">
       <header className="flex flex-col items-center gap-4 text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
           <span className="bg-gradient-to-b from-sky-500 to-sky-700 text-transparent bg-clip-text">
           {content.promotitle}{" "}
           </span>
@@ -79,7 +79,11 @@ export const PromoFeatureList = () => {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {content.features.map(({ title, description, image }) => (
-          <Card key={title} className="flex flex-col rounded-2xl">
+          <div
+            key={title}
+            className="relative p-[1px] bg-gradient-to-br from-sky-600 to-sky-300 dark:to-slate-600 rounded-2xl"
+          >
+          <Card className="flex flex-col bg-secondary h-full rounded-2xl">
             <CardHeader>
               <CardTitle className="text-xl font-semibold">{title}</CardTitle>
             </CardHeader>
@@ -94,6 +98,7 @@ export const PromoFeatureList = () => {
               />
             </CardFooter>
           </Card>
+          </div>
         ))}
       </div>
     </section>

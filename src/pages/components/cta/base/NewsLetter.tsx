@@ -18,7 +18,7 @@ export const NewsLetter = () => {
         >
           <Input
             placeholder="yourmail@website.com"
-            className="bg-muted/50 dark:bg-muted/80"
+            className="bg-secondary dark:bg-muted/80"
             aria-label="email"
           />
           <Button>Subscribe</Button>
