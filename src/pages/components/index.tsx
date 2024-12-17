@@ -83,7 +83,7 @@ const fireConfetti = (x: number, y: number) => {
   confetti({
     particleCount: 70,
     angle: 45,
-    spread: 90,
+    spread: 70,
     origin: { x, y },
     scalar: 0.7,
     zIndex: 1000,
@@ -95,8 +95,8 @@ const PreviewCard = React.memo(
     const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
       if (path === "/components/promo") {
         const rect = e.currentTarget.getBoundingClientRect();
-        const x = (rect.left + rect.width / 2) / window.innerWidth;
-        const y = ((rect.top + rect.height / 4)) / window.innerHeight;
+        const x = (rect.left + rect.width / 2.1) / window.innerWidth;
+        const y = (rect.top + rect.height / 3) / window.innerHeight;
 
         fireConfetti(x, y);
       }
