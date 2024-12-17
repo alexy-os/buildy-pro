@@ -81,10 +81,11 @@ const PREVIEW_COMPONENTS = [
 
 const fireConfetti = (x: number, y: number) => {
   confetti({
-    particleCount: 60,
-    spread: 70,
+    particleCount: 70,
+    angle: 45,
+    spread: 90,
     origin: { x, y },
-    scalar: 0.8,
+    scalar: 0.7,
     zIndex: 1000,
   });
 };
@@ -95,7 +96,7 @@ const PreviewCard = React.memo(
       if (path === "/components/promo") {
         const rect = e.currentTarget.getBoundingClientRect();
         const x = (rect.left + rect.width / 2) / window.innerWidth;
-        const y = (rect.top + rect.height / 2) / window.innerHeight;
+        const y = ((rect.top + rect.height / 4)) / window.innerHeight;
 
         fireConfetti(x, y);
       }
