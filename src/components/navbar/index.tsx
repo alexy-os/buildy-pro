@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Box } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DarkMode } from "../elements/dark-mode";
 import { MobileSheet } from "./mobile-sheet";
@@ -34,15 +35,17 @@ export function Navbar({ className }: NavbarProps) {
             </div>
             {ACTION_ITEMS.map((item) => (
               <Button
-                key={item.path}
-                variant={item.variant}
-                className={item.className}
-                asChild
-              >
-                <Link to={item.path}>
-                  {item.label}
-                </Link>
-              </Button>
+              key={item.path}
+              size={item.size}
+              variant={item.variant}
+              className={item.className}
+              asChild
+            >
+              <Link to={item.path}>
+              <Box className="w-4 h-4 stroke-1" />
+                {item.label}
+              </Link>
+            </Button>
             ))}
           </nav>
         </div>

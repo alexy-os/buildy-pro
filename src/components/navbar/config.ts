@@ -32,9 +32,10 @@ export const NAVIGATION_ITEMS: NavItem[] = [
 
 export const ACTION_ITEMS: ActionItem[] = [
   {
-    path: "https://github.com/alexy-os/react-shadcn-uiblocks",
-    label: "GitHub",
-    variant: "outline",
-    className: "hidden md:flex",
+    path: "https://ui.hinddy.com/",
+    label: "UI Lite",
+    size: "sm",
+    variant: "default",
+    className: "hidden md:flex bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90 transition-colors rounded-lg",
   },
 ]; 
