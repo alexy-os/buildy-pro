@@ -3,21 +3,12 @@ import { Section } from "@/components/partials/section";
 import { Link } from "react-router-dom";
 import confetti from "canvas-confetti";
 import {
-  PanelBottomDashed,
-  LayoutTemplate,
-  Sparkles,
-  Megaphone,
-  ScrollText,
-  AppWindow,
-  PartyPopper,
-  Goal,
-} from "lucide-react";
-import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { Blocks } from "@/blocks";
 
 type ComponentsPageProps = React.HTMLAttributes<HTMLElement>;
 
@@ -27,57 +18,7 @@ const COMPONENTS = {
     "Browse through our collection of reusable components built with shadcn/ui and Tailwind CSS.",
 } as const;
 
-const PREVIEW_COMPONENTS = [
-  {
-    title: "Hero Sections",
-    description: "Eye-catching hero sections to grab your visitors' attention",
-    icon: LayoutTemplate,
-    path: "/components/hero",
-  },
-  {
-    title: "Features",
-    description: "Showcase your product's features with elegant layouts",
-    icon: Sparkles,
-    path: "/components/features",
-  },
-  {
-    title: "Business",
-    description: "Managing a business shouldn't be complicated",
-    icon: Goal,
-    path: "/components/business",
-  },
-  {
-    title: "Blog Layouts",
-    description: "Beautiful blog layouts for your content",
-    icon: ScrollText,
-    path: "/components/blog",
-  },
-  {
-    title: "Navbar Sections",
-    description: "Beautiful navbars sections for your website + mobile version",
-    icon: AppWindow,
-    path: "/components/navbar",
-  },
-  {
-    title: "Promo Sections",
-    description: "Convert visitors with compelling promotion sections",
-    icon: PartyPopper,
-    path: "/components/promo",
-  },
-  {
-    title: "CTA Sections",
-    description: "Convert visitors with compelling call-to-action sections",
-    icon: Megaphone,
-    path: "/components/cta",
-  },
-  {
-    title: "Footer Sections",
-    description:
-      "Simplify footers layouts for your website or landing page",
-    icon: PanelBottomDashed,
-    path: "/components/footer",
-  },
-] as const;
+const PREVIEW_COMPONENTS = Blocks();
 
 const fireConfetti = (x: number, y: number) => {
   confetti({

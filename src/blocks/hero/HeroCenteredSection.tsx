@@ -1,7 +1,7 @@
 import { Info, Rocket } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { NavbarMenuNoLink } from "../../HTMLNavbar";
+import { NavbarMenuNoLink } from "../navbar/NavbarMenuNoLink";
 
 type Content = {
   badge: string;

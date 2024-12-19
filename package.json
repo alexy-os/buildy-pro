@@ -1,6 +1,6 @@
 {
-    "name": "react-shadcn-uiblocks",
-    "version": "1.0.7",
+    "name": "react-shadcn-uiblocks-pro",
+    "version": "1.0.8",
     "description": "React Shadcn UI Blocks Starter",
     "author": "AlexY-OS",
     "license": "MIT",
@@ -33,6 +33,8 @@
         "js-beautify": "^1.15.1",
         "lottie-react": "^2.4.0",
         "lucide-react": "^0.468.0",
+        "postcss-hash-classname": "^0.4.0",
+        "postcss-selector-rename": "^3.0.1",
         "react-router-dom": "7.0.2",
         "sonner": "^1.7.1",
         "tailwind-merge": "^2.5.5",

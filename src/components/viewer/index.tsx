@@ -7,9 +7,9 @@ import React from 'react';
 import { useEffect } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { ViewerProps, ViewMode } from './types';
-import { headerVariants, viewerVariants } from './viewer.styles';
-import { ViewerPreview } from './viewer-preview';
-import { ViewerCode } from './viewer-code';
+import { HeaderVariants, ViewerVariants } from './ViewerVariants';
+import { ViewerPreview } from './ViewerPreview';
+import { ViewerCode } from './ViewerCode';
 import beautify from 'js-beautify';
 
 const LOCAL_STORAGE_KEY = 'preferred-code-mode';
@@ -60,10 +60,10 @@ const Viewer = React.forwardRef<HTMLDivElement, ViewerProps>(
         return (
             <div
                 ref={ref}
-                className={cn(viewerVariants(), className)}
+                className={cn(ViewerVariants(), className)}
                 {...props}
             >
-                <div className={headerVariants()}>
+                <div className={HeaderVariants()}>
                     <div className="flex items-center gap-2">
                         <Button
                             variant="ghost"

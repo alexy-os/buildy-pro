@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const viewerVariants = cva(
+export const ViewerVariants = cva(
     'w-full rounded-lg border border-border bg-background overflow-hidden',
     {
         variants: {
@@ -16,6 +16,6 @@ export const viewerVariants = cva(
     }
 );
 
-export const headerVariants = cva(
+export const HeaderVariants = cva(
     'flex items-center justify-between border-b border-border p-4'
 ); 
