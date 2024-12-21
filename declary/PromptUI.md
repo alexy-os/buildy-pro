@@ -52,6 +52,7 @@ const content: Content = {
    - Define explicit types for content objects
    - Use const assertions for literal types
    - Prefer union types over enums
+   - For icon properties, use `icon: React.ReactNode;` to allow any valid React element
 
 ### HTML Semantics
 1. **Structure**
@@ -72,8 +73,10 @@ const content: Content = {
 1. **Mapping**
    - Use unique keys (prefer content-based over id)
    ```tsx
-   {items?.map(({ content }) => (
-     <Component key={id} />
+   {buttons?.map(({ id, text, icon }) => (
+     <Button key={id} icon={icon}>
+       {text}
+     </Button>
    ))}
    ```
 
@@ -135,3 +138,45 @@ const content: Content = {
 - Must be pure functions
 - Must use shadcn/ui components
 - Must follow container pattern
+
+## Strict Naming Conventions
+
+### Types and Content
+1. **Content Declaration**
+   - Must use lowercase `content` for constant (both default and internal)
+   - Must use uppercase `Content` for type
+   - Must use `as const` assertion
+   ```typescript
+   // Type definition
+   type Content = {
+     title: string;
+     description: string;
+     buttons: Array<ButtonProps>;
+   };
+
+   // Internal content
+   const content: Content = {
+     title: "Default Title",
+     description: "Default Description",
+     buttons: []
+   } as const;
+   ```
+
+2. **Component Structure**
+   - Must include ComponentPropsWithoutRef
+   - Must use content spread with destructuring
+   - Must use return statement
+   ```typescript
+   type ComponentProps = React.ComponentPropsWithoutRef<"section"> & Partial<Content>;
+
+   export const Component = (props: ComponentProps) => {
+     const { title, description, buttons } = {
+       ...content,
+       ...props
+     };
+
+     return (
+       // JSX
+     );
+   };
+   ```

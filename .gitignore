@@ -1,4 +1,6 @@
 .manual/
+.scripts/
+.work/
 .vscode/
 .env
 node_modules/
