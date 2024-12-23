@@ -2,9 +2,7 @@ import { Info, Rocket, MoveRight } from "lucide-react";
 import { Button, type ButtonProps } from "@/components/ui/button";
 
 type Content = {
-  badge?: {
-    text: string;
-  };
+  promo: string;
   title: string;
   description: string;
   buttons?: (ButtonProps & {
@@ -15,9 +13,7 @@ type Content = {
 };
 
 const content: Content = {
-  badge: {
-    text: "Let's Go to Buildy/UI"
-  },
+  promo: "Let's Go to Buildy/UI",
   title: "Effortless Prototyping",
   description: "Streamline your development process with our flexible UI library. Experience effortless prototyping and create custom, responsive designs quickly and efficiently.",
   buttons: [
@@ -43,7 +39,7 @@ const content: Content = {
 type HeroCenteredWithTopButtonProps = React.ComponentPropsWithoutRef<"section"> & Partial<Content>;
 
 export const HeroCenteredWithTopButton = (props: HeroCenteredWithTopButtonProps) => {
-  const { badge, title, description, buttons } = {
+  const { promo, title, description, buttons } = {
     ...content,
     ...props
   };
@@ -54,7 +50,7 @@ export const HeroCenteredWithTopButton = (props: HeroCenteredWithTopButtonProps)
         <div className="flex flex-col text-center gap-8 items-center">
           <div>
             <Button size="sm" variant="outline" className="rounded-full h-7">
-              {badge?.text} <MoveRight />
+              {promo} <MoveRight />
             </Button>
           </div>
           <div className="flex flex-col gap-4">

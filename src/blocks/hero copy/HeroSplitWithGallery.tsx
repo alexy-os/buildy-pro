@@ -1,13 +1,19 @@
 import { BookOpen, Github } from "lucide-react";
-import { Badge, type BadgeProps } from "@/components/ui/badge";
 import { Button, type ButtonProps } from "@/components/ui/button";
+import { Badge, type BadgeProps } from "@/components/ui/badge";
 
 type Content = {
-  badge?: BadgeProps & {
+  badge?: (BadgeProps & {
     text: string;
+  });
+  title: {
+    text: string;
+    className: string;
   };
-  title: string;
-  description: string;
+  description: {
+    text: string;
+    className: string;
+  };
   buttons?: (ButtonProps & {
     id: string;
     text: string;
@@ -25,14 +31,20 @@ type Content = {
   };
 };
 
-const content: Content = {
+const content = {
   badge: {
     text: "We're building",
     variant: "outline",
     className: "text-sm font-medium"
   },
-  title: "Build with shadcn ui components",
-  description: "Beautifully designed components built with Radix UI and Tailwind CSS. Open source and free to use in your applications.",
+  title: {
+    text: "Build with shadcn ui components",
+    className: "text-3xl md:text-4xl lg:text-5xl font-bold"
+  },
+  description: {
+    text: "Beautifully designed components built with Radix UI and Tailwind CSS. Open source and free to use in your applications.",
+    className: "text-muted-foreground"
+  },
   buttons: [
     {
       id: "button1",
@@ -88,17 +100,15 @@ export const HeroSplitWithGallery = (props: HeroSplitWithGalleryProps) => {
     <div className="container mx-auto px-4 md:px-6 lg:px-8">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         <div className="flex gap-4 flex-col">
-          {badge &&
-          <div className="flex justify-center">
+          <div>
             <Badge variant="outline">{badge.text}</Badge>
           </div>
-          }
           <div className="flex gap-4 flex-col">
-            <h2 className="max-w-2xl text-3xl md:text-4xl lg:text-5xl font-bold">
-                {title}
+            <h2 className={title.className}>
+                {title.text}
             </h2>
-            <p className="text-base text-muted-foreground max-w-2xl">
-              {description}
+            <p className={description.className}>
+              {description.text}
             </p>
           </div>
           <div className="flex flex-col md:flex-row gap-4">

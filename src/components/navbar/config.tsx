@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Box } from "lucide-react";
 
 export type BaseNavigationItem = {
   path: string;
@@ -11,8 +12,9 @@ export type NavItem = BaseNavigationItem & {
 };
 
 export type ActionItem = BaseNavigationItem & {
-  icon?: () => ReactNode;
+  icon?: ReactNode;
   variant?: "default" | "outline" | "ghost";
+  size?: "sm" | "default" | "lg";
   className?: string;
   hideOnMobile?: boolean;
 };
@@ -37,5 +39,6 @@ export const ACTION_ITEMS: ActionItem[] = [
     size: "sm",
     variant: "default",
     className: "hidden md:flex bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90 transition-colors rounded-lg",
+    icon: <Box className="w-4 h-4 stroke-1" />
   },
 ]; 

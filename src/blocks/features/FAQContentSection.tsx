@@ -6,13 +6,17 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
+import { Button, type ButtonProps } from "@/components/ui/button";
 
-type FAQContent = {
-  promo: string;
+type Content = {
+  badge: string;
   title: string;
   description: string;
-  contactText: string;
+  button: {
+    text: string;
+    variant: ButtonProps["variant"];
+    icon: React.ReactNode;
+  };
   faqs: {
     id: string;
     question: string;
@@ -20,12 +24,16 @@ type FAQContent = {
   }[];
 };
 
-const content: FAQContent = {
-  promo: "FAQ",
+const content: Content = {
+  badge: "FAQ",
   title: "Why Choose shadcn/ui?",
   description:
     "Discover the reasons why shadcn/ui is the ideal choice for modern, flexible, and accessible UI components, empowering developers to build faster and smarter.",
-  contactText: "Any questions? Reach out",
+  button: {
+    text: "Any questions?",
+    variant: "default",
+    icon: <Send className="w-4 h-4" />
+  },
   faqs: [
     {
       id: "faq1",
@@ -60,35 +68,44 @@ const content: FAQContent = {
   ],
 } as const;
 
-export const FAQContentSection = () => (
-  <section className="w-full py-16 lg:py-32">
-    <div className="container mx-auto px-4 md:px-6 lg:px-8">
-      <div className="grid lg:grid-cols-2 gap-10">
-        <div className="flex flex-col gap-6">
-          <header className="flex flex-col gap-4">
-            <div>
-              <Badge variant="outline">{content.promo}</Badge>
-            </div>
-            <h4 className="text-3xl md:text-4xl lg:text-6xl font-bold max-w-xl">
-              {content.title}
-            </h4>
-            <p className="text-lg text-muted-foreground max-w-2xl">
-              {content.description}
-            </p>
-          </header>
-          <Button className="gap-4 w-fit">
-            {content.contactText} <Send className="w-4 h-4" />
-          </Button>
+type FAQContentSectionProps = React.ComponentPropsWithoutRef<"section"> & Partial<Content>
+
+export const FAQContentSection = (props: FAQContentSectionProps) => {
+  const { badge, title, description, button, faqs } = {
+    ...content,
+    ...props
+  }
+
+  return (
+    <section className="w-full py-16 lg:py-32">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-10">
+          <div className="flex flex-col gap-6">
+            <header className="flex flex-col gap-4">
+              <div>
+                <Badge variant="outline">{badge}</Badge>
+              </div>
+              <h4 className="text-3xl md:text-4xl lg:text-6xl font-bold max-w-xl">
+                {title}
+              </h4>
+              <p className="text-lg text-muted-foreground max-w-2xl">
+                {description}
+              </p>
+            </header>
+            <Button variant={button.variant} className="gap-4 w-fit">
+              {button.text} {button.icon}
+            </Button>
+          </div>
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map(({ id, question, answer }) => (
+              <AccordionItem key={id} value={id}>
+                <AccordionTrigger className="font-bold text-muted-foreground">{question}</AccordionTrigger>
+                <AccordionContent>{answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
-        <Accordion type="single" collapsible className="w-full">
-          {content.faqs.map((faq) => (
-            <AccordionItem key={faq.id} value={faq.id}>
-              <AccordionTrigger className="font-bold text-muted-foreground">{faq.question}</AccordionTrigger>
-              <AccordionContent>{faq.answer}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};

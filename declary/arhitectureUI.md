@@ -178,3 +178,23 @@ const content: Content = {
      );
    };
    ```
+
+### Component Base Types
+
+```typescript
+// Define base component props with semantic root element
+type ComponentProps<T extends keyof JSX.IntrinsicElements = "section"> = 
+  React.ComponentPropsWithoutRef<T> & Partial<Content>;
+
+// Usage examples
+export const HeroSection = (props: ComponentProps) => {
+  return <section {...props}>{/* content */}</section>;
+};
+
+export const MainHeader = (props: ComponentProps<"header">) => {
+  return <header {...props}>{/* content */}</header>;
+};
+```
+
+> Note: Use appropriate semantic HTML root element based on the component's purpose 
+> (section, article, header, etc). Default is "section" for block-level components.

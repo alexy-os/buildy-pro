@@ -26,6 +26,7 @@ type Content = {
     icon: React.ReactNode;
   }[];
 };
+import { registerViewScript } from '@/utils/viewScript';
 
 // Internal content
 const content: Content = {
@@ -36,13 +37,13 @@ const content: Content = {
   navigation: [
     {
       id: "docs",
-      path: "/docs",
+      path: "https://ui.hinddy.com/docs",
       label: "Documentation",
       icon: <BookOpen className="h-5 w-5" />,
     },
     {
       id: "components",
-      path: "/components",
+      path: "https://ui.hinddy.com/components",
       label: "Components",
       icon: <Layers className="h-5 w-5" />,
     },
@@ -133,7 +134,7 @@ export const NavbarLineMenu = (props: NavbarProps) => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95">
+      <header className="sticky top-0 z-20 w-full border-b bg-background/95">
         <div className="container mx-auto px-4 flex h-14 items-center">
           <div className="mr-4 flex">
             <Brand />
@@ -172,3 +173,44 @@ export const NavbarLineMenu = (props: NavbarProps) => {
     </>
   );
 };
+
+// Strict adherence to the current component name
+const componentName = "NavbarLineMenu" as const;
+
+// Register the ViewScript for this component
+registerViewScript(componentName, () => `
+<script>
+    let isMenuOpen = false;
+    const burgerBtn = document.querySelector('[aria-controls="radix-:Rt:"]');
+    const mobileSheet = document.createElement('div');
+    mobileSheet.className = 'fixed inset-y-0 right-0 w-[80%] max-w-sm bg-background shadow-xl transform translate-x-full transition-transform duration-300 z-20';
+    mobileSheet.innerHTML = \`
+        <div class="p-4 space-y-4">
+            <div class="flex justify-between items-center">
+                <h2 class="text-lg font-semibold">Menu</h2>
+                <button class="close-sheet p-2">✕</button>
+            </div>
+            <div class="space-y-2">
+                <a href="https://ui.hinddy.com/docs" class="block p-2 hover:bg-accent rounded-md">Documentation</a>
+                <a href="https://ui.hinddy.com/components" class="block p-2 hover:bg-accent rounded-md">Components</a>
+            </div>
+        </div>
+    \`;
+
+    function handleMobileMenu() {
+        document.body.appendChild(mobileSheet);
+        
+        burgerBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            mobileSheet.style.transform = isMenuOpen ? 'translateX(0)' : 'translateX(100%)';
+        });
+
+        mobileSheet.querySelector('.close-sheet').addEventListener('click', () => {
+            isMenuOpen = false;
+            mobileSheet.style.transform = 'translateX(100%)';
+        });
+    }
+
+    handleMobileMenu();
+</script>
+`);

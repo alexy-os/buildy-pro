@@ -1,13 +1,11 @@
 import { Button, type ButtonProps } from "@/components/ui/button";
 
 type Content = {
-  title: string;
-  description: string;
-  buttons?: (ButtonProps & {
-    id: string;
-    text: string;
-    icon?: React.ReactNode;
-  })[];
+    title: string;
+    description: string;
+    buttons: (ButtonProps & {
+        text: string;
+    })[];
     image: {
         src: string;
         alt: string;
@@ -19,13 +17,13 @@ const content: Content = {
     title: "Transform Your Workflow",
     description: "Streamline your development process with our powerful tools and components.",
     buttons: [
-        { id: "button1", text: "Try Now", variant: "default" },
-        { id: "button2", text: "View Demo", variant: "outline" }
+        { id: "btn1", text: "Try Now" },
+        { id: "btn2", text: "View Demo" }
     ],
     image: {
-        src: "https://placehold.co/400/?text=Hero Image",
+        src: "https://placehold.co/400",
         alt: "Hero Image",
-        className: "w-full h-full object-cover rounded-lg"
+        className: "w-full h-full object-cover"
     }
 } as const;
 

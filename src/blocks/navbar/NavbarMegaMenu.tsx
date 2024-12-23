@@ -73,14 +73,14 @@ const content: Content = {
             title: "Introduction",
             description:
               "Re-usable components built using Radix UI and Tailwind CSS",
-            href: "/docs",
+            href: "#",
           },
           {
             id: "install",
             title: "Installation",
             description:
               "How to install dependencies and structure your app",
-            href: "/docs/installation",
+            href: "#",
           },
         ],
       },
@@ -93,13 +93,13 @@ const content: Content = {
             title: "Alert Dialog",
             description:
               "A modal dialog that interrupts the user with important content",
-            href: "/docs/primitives/alert-dialog",
+            href: "#",
           },
           {
             id: "hover-card",
             title: "Hover Card",
             description: "Preview content available behind a link",
-            href: "/docs/primitives/hover-card",
+            href: "#",
           },
         ],
       },
@@ -107,7 +107,7 @@ const content: Content = {
     static: [
       {
         id: "docs",
-        path: "/docs",
+        path: "#",
         label: "Documentation",
         icon: <BookOpen className="h-5 w-5" />,
       },
@@ -116,7 +116,7 @@ const content: Content = {
   actions: [
     {
       id: "github",
-      path: "https://github.com/alexy-os/buildy-lite",
+      path: "#",
       label: "GitHub",
       icon: <Github className="h-5 w-5" />,
     },
@@ -276,7 +276,7 @@ export const NavbarMegaMenu = (props: NavbarProps) => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95">
+      <header className="sticky top-0 z-20 w-full border-b bg-background/95">
         <div className="container mx-auto px-4 flex h-14 items-center">
           <div className="mr-4 flex">
             <Brand />
@@ -333,7 +333,7 @@ registerViewScript(componentName, () => `
     const burgerBtn = document.querySelector('[aria-controls="radix-:Rt:"]');
     const desktopButtons = document.querySelectorAll('[data-radix-collection-item]');
     const mobileSheet = document.createElement('div');
-    mobileSheet.className = 'fixed inset-y-0 right-0 w-[80%] max-w-sm bg-background shadow-xl transform translate-x-full transition-transform duration-300 z-50';
+    mobileSheet.className = 'fixed inset-y-0 right-0 w-[80%] max-w-sm bg-background shadow-xl transform translate-x-full transition-transform duration-300 z-20';
     mobileSheet.innerHTML = \` <div class="p-4 space-y-4"><div class="flex justify-between items-center"><h2 class="text-lg font-semibold">Menu</h2><button class="close-sheet p-2">✕</button></div><div class="space-y-2"> \${Array.from(desktopButtons).map(btn => \` <div class="mobile-menu-item"><button class="w-full text-left p-3 hover:bg-accent rounded-md flex justify-between items-center"> \${btn.textContent} </button><div class="submenu hidden pl-4 space-y-2 mt-2"><a href="#" class="block p-2 hover:bg-accent rounded-md">Submenu Item 1</a><a href="#" class="block p-2 hover:bg-accent rounded-md">Submenu Item 2</a></div></div> \`).join('')} </div></div> \`;
 
     function handleDesktopMenu() {
