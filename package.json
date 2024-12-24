@@ -1,6 +1,6 @@
 {
     "name": "buildy-pro",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "React Shadcn UI Blocks Starter",
     "author": "AlexY-OS",
     "license": "MIT",
@@ -25,6 +25,7 @@
         "@types/bun": "^1.1.14",
         "@types/canvas-confetti": "^1.6.4",
         "@types/js-beautify": "^1.14.3",
+        "@types/prismjs": "^1.26.5",
         "@types/react-dom": "19.0.1",
         "canvas-confetti": "^1.9.3",
         "class-variance-authority": "^0.7.1",
@@ -33,6 +34,7 @@
         "js-beautify": "^1.15.1",
         "lottie-react": "^2.4.0",
         "lucide-react": "^0.468.0",
+        "prismjs": "^1.29.0",
         "react-router-dom": "7.0.2",
         "sonner": "^1.7.1",
         "tailwind-merge": "^2.5.5",
