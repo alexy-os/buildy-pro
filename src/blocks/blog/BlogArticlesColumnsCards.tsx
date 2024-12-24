@@ -61,19 +61,27 @@ const content: Content = {
   ],
 } as const;
 
-export const BlogArticlesColumnsCards = () => (
+type BlogArticlesColumnsCardsProps = React.ComponentPropsWithoutRef<"section"> & Partial<Content>;
+
+export const BlogArticlesColumnsCards = (props: BlogArticlesColumnsCardsProps) => {
+  const { title, description, articles } = {
+    ...content,
+    ...props
+  };
+
+  return (
   <section className="w-full py-8 lg:py-16">
     <div className="container mx-auto px-4 md:px-6 lg:px-8 flex flex-col gap-8">
       <header className="flex flex-col gap-2">
         <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold max-w-xl">
-          {content.title}
+          {title}
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl">
-            {content.description}
+          {description}
         </p>
       </header>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {content.articles.map((article) => (
+        {articles?.map((article) => (
           <article
             key={article.id}
             className={`flex flex-col gap-4 hover:opacity-75 cursor-pointer ${article.className}`}
@@ -102,7 +110,8 @@ export const BlogArticlesColumnsCards = () => (
             </div>
           </article>
         ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};

@@ -1,24 +1,22 @@
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-type JobOpening = {
-  id: string
-  title: string
-  location: string
-  link: string
-}
-
-type JobCategory = {
-  id: string
-  category: string
-  openings: JobOpening[]
-}
-
-const content: {
+type Content = {
   title: string
   description: string
-  categories: JobCategory[]
-} = {
+  categories: {
+    id: string
+    category: string
+    openings: {
+      id: string
+      title: string
+      location: string
+      link: string
+    }[]
+  }[]
+}
+
+const content: Content = {
   title: 'Explore Career Opportunities',
   description: 'Become part of a team of advanced system design based on Radix and shadcn/ui',
   categories: [
@@ -73,7 +71,14 @@ const content: {
   ]
 } as const
 
-export const CareerSection = () => {
+type CareerSectionProps = React.ComponentPropsWithoutRef<"section"> & Partial<Content>;
+
+export const CareerSection = (props: CareerSectionProps) => {
+  const { title, description, categories } = {
+    ...content,
+    ...props
+  };
+
   return (
     <section 
       aria-labelledby="careers-heading" 
@@ -81,19 +86,16 @@ export const CareerSection = () => {
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-screen-lg">
         <header className="mb-12">
-          <h2 
-            id="careers-heading" 
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground"
-          >
-            {content.title}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground">
+            {title}
           </h2>
-        <p className="text-lg text-muted-foreground max-w-2xl py-4">
-            {content.description}
-        </p>
+          <p className="text-lg text-muted-foreground max-w-2xl py-4">
+            {description}
+          </p>
         </header>
 
         <div className="space-y-12">
-          {content.categories.map((category) => (
+          {categories?.map((category) => (
             <article key={category.id}>
               <h3 className="py-4 text-xl font-bold text-muted-foreground">
                 {category.category}

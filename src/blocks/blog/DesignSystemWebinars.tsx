@@ -1,6 +1,20 @@
 import { ArrowRight } from "lucide-react";
 
-const content = {
+type Content = {
+  title: string;
+  webinars: {
+    id: string;
+    title: string;
+    summary: string;
+    label: string;
+    author: string;
+    published: string;
+    href: string;
+    image: string;
+  }[];
+};
+
+const content: Content = {
   title: "Discover Our Design System",
   webinars: [
     {
@@ -28,18 +42,26 @@ const content = {
   ],
 } as const;
 
-export const DesignSystemWebinars = () => (
+type DesignSystemWebinarsProps = React.ComponentPropsWithoutRef<"section"> & Partial<Content>;
+
+export const DesignSystemWebinars = (props: DesignSystemWebinarsProps) => {
+  const { title, webinars } = {
+    ...content,
+    ...props
+  };
+
+  return (
   <section className="w-full py-16 lg:py-32">
     <div className="container mx-auto px-4 md:px-6 lg:px-8 flex flex-col gap-12">
       {/* Section header */}
       <header className="text-center py-8 lg:py-16">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-          {content.title}
+          {title}
         </h2>
       </header>
       {/* Webinars grid */}
       <div className="grid gap-8 sm:grid-cols-12 lg:gap-10">
-        {content.webinars.map((webinar) => (
+        {webinars?.map((webinar) => (
           <a
             key={webinar.id}
             href={webinar.href}
@@ -72,7 +94,8 @@ export const DesignSystemWebinars = () => (
             </div>
           </a>
         ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};

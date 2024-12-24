@@ -87,25 +87,33 @@ const content: Content = {
   ],
 } as const;
 
-export const BusinessCardsGallery = () => (
+type BusinessCardsGalleryProps = React.ComponentPropsWithoutRef<"section"> & Partial<Content>;
+
+export const BusinessCardsGallery = (props: BusinessCardsGalleryProps) => {
+  const { promo, title, description, cards } = {
+    ...content,
+    ...props
+  };
+
+  return (
   <section className="w-full py-16 lg:py-32">
     <div className="container mx-auto px-4 md:px-6 lg:px-8">
       <div className="flex flex-col gap-8">
         <header className="flex flex-col gap-4 items-start">
           <Badge variant="outline" className="rounded-full h-7">
-            {content.promo}
+            {promo}
           </Badge>
           <div className="flex flex-col gap-2">
             <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold max-w-xl">
-              {content.title}
+              {title}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              {content.description}
+              {description}
             </p>
           </div>
         </header>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {content.cards.map((card) => (
+          {cards?.map((card) => (
             <div
               key={card.id}
               className={`bg-muted rounded-md p-6 flex flex-col justify-between ${card.className}`}
@@ -122,7 +130,8 @@ export const BusinessCardsGallery = () => (
             </div>
           ))}
         </div>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};

@@ -10,13 +10,19 @@ import responsiveImage from "@/assets/img/strategy.svg";
 import intuitiveImage from "@/assets/img/strategy.svg";
 import aiImage from "@/assets/img/strategy.svg";
 
-interface FeatureProps {
+type Content = {
   title: string;
+  promotitle: string;
   description: string;
-  image: string;
-}
+  features: {
+    title: string;
+    description: string;
+    image: string;
+  }[];
+  featureList: string[];
+};
 
-const content = {
+const content: Content = {
   promotitle: "Powerful",
   title: "Features",
   description:
@@ -40,7 +46,7 @@ const content = {
         "Enhance your workflow with intelligent suggestions and prebuilt patterns.",
       image: aiImage,
     },
-  ] as FeatureProps[],
+  ] as Content['features'],
   featureList: [
     "Dark/Light Theme",
     "Reviews",
@@ -54,23 +60,30 @@ const content = {
   ],
 } as const;
 
-export const PromoFeatureList = () => {
+type PromoFeatureListProps = React.ComponentPropsWithoutRef<"section"> & Partial<Content>;
+
+export const PromoFeatureList = (props: PromoFeatureListProps) => {
+  const { promotitle, title, description, features, featureList } = {
+    ...content,
+    ...props
+  };
+
   return (
     <section className="container mx-auto px-4 md:px-6 lg:px-8 py-16 lg:py-32 space-y-8">
       <header className="flex flex-col items-center gap-4 text-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
           <span className="bg-gradient-to-b from-sky-500 to-sky-700 text-transparent bg-clip-text">
-          {content.promotitle}{" "}
+          {promotitle}{" "}
           </span>
-          {content.title}
+          {title}
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl">
-          {content.description}
+          {description}
         </p>
       </header>
 
       <div className="flex flex-wrap justify-center gap-4">
-        {content.featureList.map((feature) => (
+        {featureList?.map((feature) => (
           <Badge key={feature} variant="secondary" className="text-sm">
             {feature}
           </Badge>
@@ -78,7 +91,7 @@ export const PromoFeatureList = () => {
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {content.features.map(({ title, description, image }) => (
+        {features?.map(({ title, description, image }) => (
           <div
             key={title}
             className="relative p-[1px] bg-gradient-to-br from-sky-600 to-sky-300 dark:to-slate-600 rounded-2xl"

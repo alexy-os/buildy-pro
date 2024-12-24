@@ -9,20 +9,20 @@ import {
 } from "@/components/ui/card";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 
-interface TeamProps {
-  imageUrl: string;
-  name: string;
-  position: string;
-  slogan: string;
-  socialNetworks: SocialNetworksProps[];
-}
+type Content = {
+  title: string;
+  promotitle: string;
+  description: string;
+  teamList: {
+    imageUrl: string;
+    name: string;
+    position: string;
+    slogan: string;
+    socialNetworks: { name: string; url: string }[];
+  }[];
+};
 
-interface SocialNetworksProps {
-  name: string;
-  url: string;
-}
-
-const content = {
+const content: Content = {
   title: "Meet Our",
   promotitle: "Team",
   description:
@@ -70,10 +70,17 @@ const content = {
         { name: "Facebook", url: "#" },
       ],
     },
-  ] as TeamProps[],
+  ] as Content['teamList'],
 } as const;
 
-export const PromoTeamSection = () => {
+type PromoTeamSectionProps = React.ComponentPropsWithoutRef<"section"> & Partial<Content>;
+
+export const PromoTeamSection = (props: PromoTeamSectionProps) => {
+  const { title, promotitle, description, teamList } = {
+    ...content,
+    ...props
+  };
+
   const socialIcon = (iconName: string) => {
     switch (iconName) {
       case "Linkedin":
@@ -89,18 +96,18 @@ export const PromoTeamSection = () => {
     <section className="container mx-auto px-4 md:px-6 lg:px-8 py-16 lg:py-32">
       <header className="text-center space-y-4">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-          {content.title}{" "}
+          {title}{" "}
           <span className="bg-gradient-to-b from-sky-500 to-sky-700 text-transparent bg-clip-text">
-          {content.promotitle}
+          {promotitle}
           </span>
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          {content.description}
+          {description}
         </p>
       </header>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-24">
-        {content.teamList.map(({ imageUrl, name, position, slogan, socialNetworks }) => (
+        {teamList?.map(({ imageUrl, name, position, slogan, socialNetworks }) => (
           <div
             key={name}
             className="relative p-[1px] bg-gradient-to-br from-sky-600 to-sky-300 dark:to-slate-600 rounded-2xl"

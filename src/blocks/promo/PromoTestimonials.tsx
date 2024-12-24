@@ -7,6 +7,19 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+type Content = {
+  title: string;
+  promotitle: string;
+  subtitle: string;
+  description: string;
+  testimonials: {
+    image: string;
+    name: string;
+    userName: string;
+    comment: string;
+  }[];
+};
+
 const content = {
     title: "Why Developers Love",
     promotitle: "Buildy/UI",
@@ -58,28 +71,35 @@ const content = {
           "This library is a breath of fresh air. Simple, consistent, and clean components with zero unnecessary styling. Buildy/UI truly feels like a developer's dream toolkit!",
       },
     ],
-  } as const;  
+  } as const;
 
-export const PromoTestimonials = () => {
+type PromoTestimonialsProps = React.ComponentPropsWithoutRef<"section"> & Partial<Content>;
+
+export const PromoTestimonials = (props: PromoTestimonialsProps) => {
+  const { title, promotitle, subtitle, description, testimonials } = {
+    ...content,
+    ...props
+  };
+
   return (
     <section className="container mx-auto px-4 md:px-6 lg:px-8 py-8 lg:py-16">
       <header className="text-center space-y-4">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-          {content.title}{" "}
+          {title}{" "}
           <span className="bg-gradient-to-b from-sky-500 to-sky-700 text-transparent bg-clip-text">
-            {content.promotitle}
+            {promotitle}
           </span>
         </h2>
         <h3 className="text-muted-foreground text-2xl md:text-3xl lg:text-4xl font-bold py-8">
-          {content.subtitle}
+          {subtitle}
         </h3>
         <p className="text-lg text-muted-foreground">
-          {content.description}
+          {description}
         </p>
       </header>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:block columns-2  lg:columns-3 lg:gap-6 mx-auto space-y-4 lg:space-y-6 mt-16">
-        {content.testimonials.map(
+        {testimonials?.map(
           ({ image, name, userName, comment }) => (
             <div
               key={name}

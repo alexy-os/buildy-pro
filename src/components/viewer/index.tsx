@@ -2,14 +2,13 @@
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
   } from "@/components/ui/tooltip"  
-import { Copy, CodeIcon, EyeIcon, Braces } from 'lucide-react';
+import { Copy, CodeIcon, EyeIcon, Database } from 'lucide-react';
 import React from 'react';
 import { useEffect } from 'react';
 import ReactDOMServer from 'react-dom/server';
@@ -172,11 +171,11 @@ const Viewer = React.forwardRef<HTMLDivElement, ViewerProps>(
                                         className="text-xs flex items-center gap-1 text-green-500 mr-1"
                                         onClick={() => setMode(mode === 'preview' ? 'code' : 'preview')}
                                     >
-                                        <Braces className="h-4 w-4" />
+                                        <Database className="h-4 w-4" />
                                     </span>
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                <p>See code and pre installed global context</p>
+                                <p>See code and pre-installed global content data</p>
                                 </TooltipContent>
                             </Tooltip>
                             </TooltipProvider>
@@ -291,7 +290,7 @@ const Viewer = React.forwardRef<HTMLDivElement, ViewerProps>(
                                 <>
                                     <div className="flex flex-row justify-between items-center border-t border-b border-border px-2 sm:px-4 py-2">
                                         <h3 className="text-xs font-bold text-muted-foreground">
-                                        Example of a global context
+                                        Example of a global Data Content
                                         </h3>
                                         <Button 
                                             variant="secondary" 

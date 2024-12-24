@@ -7,8 +7,15 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const content = {
-  promo: "Design System",
+type Content = {
+  badge: string;
+  title: string;
+  description: string;
+  carouselItems: { id: string; label: string }[];
+};
+
+const content: Content = {
+  badge: "Design System",
   title: "Discover Endless Possibilities with Buildy/UI",
   description:
     "Empower your projects with versatile and innovative solutions. Streamline your business operations with our user-friendly design system.",
@@ -21,20 +28,28 @@ const content = {
   ],
 } as const;
 
-export const FeaturesSplitCarousel = () => (
-  <section className="w-full py-16 lg:py-32">
-    <div className="container mx-auto px-4 md:px-6 lg:px-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end">
+type FeaturesSplitCarouselProps = React.ComponentPropsWithoutRef<"section"> & Partial<Content>;
+
+export const FeaturesSplitCarousel = (props: FeaturesSplitCarouselProps) => {
+  const { badge, title, description, carouselItems } = {
+    ...content,
+    ...props
+  };
+
+  return (
+    <section className="w-full py-16 lg:py-32">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end">
         <header className="flex flex-col gap-4 items-start">
           <Badge variant="outline" className="rounded-full h-7">
-            {content.promo}
+            {badge}
           </Badge>
           <div className="flex flex-col gap-2">
             <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold max-w-xl">
-              {content.title}
+              {title}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              {content.description}
+              {description}
             </p>
           </div>
         </header>
@@ -46,7 +61,7 @@ export const FeaturesSplitCarousel = () => (
             }}
             >
             <CarouselContent>
-              {content.carouselItems.map((item) => (
+              {carouselItems?.map((item) => (
                 <CarouselItem key={item.id}>
                   <div className="flex rounded aspect-video bg-muted items-center justify-center">
                     <span className="text-sm">{item.label}</span>
@@ -57,8 +72,9 @@ export const FeaturesSplitCarousel = () => (
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
